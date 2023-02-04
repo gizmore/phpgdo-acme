@@ -2,21 +2,17 @@
 
 TLS setup helper module for [phpgdo](https://github.com/gizmore/phpgdo).
 
-An installer and client for the [phpacme](https://github.com/acmephp/core) library,
-developed by the official [acme guys](https://letsencrypt.org/docs/client-options/).
+Uses the [acme2](https://github.com/stonemax/acme2)
+ library from 
+[stonemax](https://github.com/stonemax).
 
 
 ### phpgdo-acme: License
 
-[MIT ((c) 2016 Titouan Galopin)](https://github.com/acmephp/acmephp/blob/master/LICENSE)
+[MIT](https://github.com/acmephp/acmephp/blob/master/LICENSE)
 
 
 ### phpgdo-acme: Dependencies
 
-Seems too hard to install without composer.
-Hence, the dependencies are quite vast.
-
-1. [composer]()
- - [GuzzleHTTP]()
- -
- -
+The official library is *much* bigger.
+acme2 does not seem to have *any* dependency.

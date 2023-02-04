@@ -4,13 +4,14 @@ namespace GDO\ACME\Method;
 use GDO\Cronjob\MethodCronjob;
 
 /**
- * Run the renewal once daily.
+ * Renew certs automatically.
  * 
  * @author gizmore
  * @version 7.0.2
  */
 final class Cronjob extends MethodCronjob
 {
+	
 	public function runAt()
 	{
 		return $this->runDailyAt(5);
@@ -18,11 +19,9 @@ final class Cronjob extends MethodCronjob
 	
 	public function run()
 	{
-		$this->renew();
-	}
-	
-	private function renew(): void
-	{
+		$result = Renew::make()->executeWithInputs([
+			'submit' => 1], false);
+		$this->logNotice($result->renderCLI());
 	}
 	
 }

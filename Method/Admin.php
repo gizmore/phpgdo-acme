@@ -6,6 +6,8 @@ use GDO\Admin\MethodAdmin;
 use GDO\ACME\Module_ACME;
 
 /**
+ * Administration.
+ * 
  * @author gizmore
  * @version 7.0.2
  */
