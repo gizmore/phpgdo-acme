@@ -7,7 +7,6 @@ use GDO\Form\GDT_Form;
 use GDO\Form\MethodForm;
 use GDO\Form\GDT_Submit;
 use GDO\Form\GDT_AntiCSRF;
-use stonemax\acme2\constants\CommonConstant;
 use GDO\Core\GDO_ErrorFatal;
 use GDO\Core\GDT;
 use GDO\Net\GDT_Domain;
@@ -56,7 +55,7 @@ final class Issue extends MethodForm
 		$module->includeVendor();
 		$client = Account::acmeAccount();
 		$domainInfo = [
-			CommonConstant::CHALLENGE_TYPE_HTTP => [
+			'http-01' => [
 				$domain,
 			],
 		];
@@ -107,7 +106,7 @@ final class Issue extends MethodForm
 	
 	private function isHTTPChallenge($challenge): bool
 	{
-		return $challenge->getType() === CommonConstant::CHALLENGE_TYPE_HTTP;
+		return $challenge->getType() === 1;
 	}
 	
 	private function challengeHTTP(Module_ACME $module, array $credential): bool
@@ -136,6 +135,8 @@ final class Issue extends MethodForm
 
 	private function saveCertificate(array $info)
 	{
+		$certfolder = Module_ACME::instance()->getCertFolder();
+		
 		print_r($info);
 		return $this->message('msg_acme_success', [GDO_DOMAIN, $pathCert, $pathChain]);
 	}

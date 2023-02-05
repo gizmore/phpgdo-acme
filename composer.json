@@ -1,16 +1,15 @@
 {
-    "name": "gizmore/phpgdo-acme",
-    "description": "Composer dependencies for phpgdo-acme module ACME.",
-    "type": "library",
-    "require": {
-        "stonemax/acme2": "dev-master"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "gizmore",
-            "email": "gizmore@wechall.net"
-        }
-    ],
-    "minimum-stability": "dev"
+	"name" : "gizmore/phpgdo-acme",
+	"description" : "Composer dependencies for phpgdo-acme module ACME.",
+	"type" : "library",
+	"require" : {
+		"stonemax/acme2" : "dev-master"
+	},
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "gizmore",
+			"email" : "gizmore@wechall.net"
+		}
+	],
+	"minimum-stability" : "dev"
 }

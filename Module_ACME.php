@@ -11,6 +11,7 @@ use GDO\Core\GDT_Checkbox;
 use GDO\Core\GDT_EnumNoI18n;
 use GDO\Date\GDT_Duration;
 use stonemax\acme2\constants\CommonConstant;
+use GDO\Util\FileUtil;
 
 /**
  * ACME, Webserver and Lets Encrypt utility.
@@ -63,10 +64,16 @@ final class Module_ACME extends GDO_Module
 			CommonConstant::KEY_PAIR_TYPE_EC :
 			CommonConstant::KEY_PAIR_TYPE_RSA;
 	}
+	
 	public function cfgStoragePath(): string
 	{
-		return GDO_PATH . 'protected/acme/' .
-			GDO_ENV . '/' . GDO_DOMAIN . '/';
+		return FileUtil::createdDir(GDO_PATH . '.well-known/acme-challenge/');
+	}
+	
+	public function getCertFolder(): string
+	{
+		$path = GDO_PATH . 'protected/acme/' . GDO_DOMAIN . '/';
+		return FileUtil::createdDir($path);
 	}
 	
 	############

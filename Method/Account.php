@@ -7,7 +7,6 @@ use GDO\Form\GDT_Form;
 use GDO\Form\MethodForm;
 use GDO\Form\GDT_Submit;
 use GDO\Form\GDT_AntiCSRF;
-use stonemax\acme2\Client;
 use GDO\Util\FileUtil;
 
 /**
@@ -20,7 +19,7 @@ final class Account extends MethodForm
 {
 	use MethodAdmin;
 	
-	public static function acmeAccount(): Client
+	public static function acmeAccount(): \stonemax\acme2\Client
 	{
 		$mod = Module_ACME::instance();
 		$path = $mod->cfgStoragePath();
