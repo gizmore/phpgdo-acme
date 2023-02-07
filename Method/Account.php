@@ -24,7 +24,7 @@ final class Account extends MethodForm
 		$mod = Module_ACME::instance();
 		$path = $mod->cfgStoragePath();
 		FileUtil::createDir($path);
-		return new Client(
+		return new \stonemax\acme2\Client(
 			[$mod->cfgAccountEmail()],
 			$path,
 			$mod->cfgStagingMode());
