@@ -1,54 +1,54 @@
 {
-    "_readme": [
-        "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
-        "This file is @generated automatically"
-    ],
-    "content-hash": "34dfaf229e1e1557e6762d179b2477f4",
-    "packages": [
-        {
-            "name": "stonemax/acme2",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/stonemax/acme2.git",
-                "reference": "235b44e9df6d297ec00c828236ff614fbf583770"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/stonemax/acme2/zipball/235b44e9df6d297ec00c828236ff614fbf583770",
-                "reference": "235b44e9df6d297ec00c828236ff614fbf583770",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "stonemax\\acme2\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Zhang Jinlong",
-                    "email": "466028373@qq.com"
-                }
-            ],
-            "description": "Another PHP client for acme protocal (version 2) implementation, used for generating letsencrypt's free ssl certificates.",
-            "time": "2019-05-17T07:49:24+00:00"
+  "_readme": [
+    "This file locks the dependencies of your project to a known state",
+    "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+    "This file is @generated automatically"
+  ],
+  "content-hash": "34dfaf229e1e1557e6762d179b2477f4",
+  "packages": [
+    {
+      "name": "stonemax/acme2",
+      "version": "dev-master",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/stonemax/acme2.git",
+        "reference": "235b44e9df6d297ec00c828236ff614fbf583770"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/stonemax/acme2/zipball/235b44e9df6d297ec00c828236ff614fbf583770",
+        "reference": "235b44e9df6d297ec00c828236ff614fbf583770",
+        "shasum": ""
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "stonemax\\acme2\\": "src/"
         }
-    ],
-    "packages-dev": [],
-    "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "stonemax/acme2": 20
-    },
-    "prefer-stable": false,
-    "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Zhang Jinlong",
+          "email": "466028373@qq.com"
+        }
+      ],
+      "description": "Another PHP client for acme protocal (version 2) implementation, used for generating letsencrypt's free ssl certificates.",
+      "time": "2019-05-17T07:49:24+00:00"
+    }
+  ],
+  "packages-dev": [],
+  "aliases": [],
+  "minimum-stability": "dev",
+  "stability-flags": {
+    "stonemax/acme2": 20
+  },
+  "prefer-stable": false,
+  "prefer-lowest": false,
+  "platform": [],
+  "platform-dev": [],
+  "plugin-api-version": "1.1.0"
 }

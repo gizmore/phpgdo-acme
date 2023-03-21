@@ -1,32 +1,33 @@
 <?php
 namespace GDO\ACME\Method;
 
-use GDO\Admin\MethodAdmin;
 use GDO\ACME\Module_ACME;
-use GDO\Form\GDT_Form;
-use GDO\Form\MethodForm;
-use GDO\Form\GDT_Submit;
-use GDO\Form\GDT_AntiCSRF;
+use GDO\Admin\MethodAdmin;
 use GDO\Core\GDO_ErrorFatal;
-use GDO\Net\GDT_DomainName;
 use GDO\Core\Website;
+use GDO\Form\GDT_AntiCSRF;
+use GDO\Form\GDT_Form;
+use GDO\Form\GDT_Submit;
+use GDO\Form\MethodForm;
+use GDO\Net\GDT_DomainName;
 
 /**
  * Issue TLS certificates.
- * 
- * @author gizmore
+ *
  * @version 7.0.2
+ * @author gizmore
  */
 final class Issue extends MethodForm
 {
+
 	use MethodAdmin;
-	
+
 	public function onRenderTabs(): void
 	{
 		$this->renderAdminBar();
 		Module_ACME::instance()->renderACMEBar();
 	}
-	
+
 	public function createForm(GDT_Form $form): void
 	{
 		$form->addFields(
@@ -42,14 +43,14 @@ final class Issue extends MethodForm
 	public function issueCert(Module_ACME $module, string $domain)
 	{
 		$domain = 'phpgdo.com';
-		
+
 		$gdt = $this->checkDomain($domain);
-		
+
 		if ($gdt->hasError())
 		{
 			return $this->error('err_acme_domain', [$gdt->renderError()]);
 		}
-		
+
 		$module->includeVendor();
 		$client = Account::acmeAccount();
 		$domainInfo = [
@@ -72,10 +73,10 @@ final class Issue extends MethodForm
 				$this->challengeDNS($module, $credential);
 			}
 // 			$challengeType = $challenge->getType();
-			
+
 // 			echo $challengeType."\n";
 // 			print_r($credential);
-			
+
 // 			{
 // 				$this->challengeHTTP($module, $credential);
 // 			}
@@ -93,20 +94,20 @@ final class Issue extends MethodForm
 		Website::error('ACME', 'err_acme_challenge', [t('err_timeout', [$time])]);
 		return $this->saveCertificate($certificateInfo);
 	}
-	
+
 	private function checkDomain(string $domain): ?GDT_DomainName
 	{
 		$gdt = GDT_DomainName::make('domain')->
-			initial($domain)->tldOnly();
+		initial($domain)->tldOnly();
 		$gdt->validate($gdt->toValue($domain));
 		return $gdt;
 	}
-	
+
 	private function isHTTPChallenge($challenge): bool
 	{
 		return $challenge->getType() === 1;
 	}
-	
+
 	private function challengeHTTP(Module_ACME $module, array $credential): bool
 	{
 		$domain = $credential['identifier'];
@@ -123,7 +124,7 @@ final class Issue extends MethodForm
 			'HTTP', $domain, html($path), html($contents)]);
 		return true;
 	}
-	
+
 	private function challengeDNS(Module_ACME $module, array $credential): void
 	{
 // 		$domain = $credential['identifier'];
@@ -134,9 +135,9 @@ final class Issue extends MethodForm
 	private function saveCertificate(array $info)
 	{
 		$certfolder = Module_ACME::instance()->getCertFolder();
-		
+
 		print_r($info);
 		return $this->message('msg_acme_success', [GDO_DOMAIN, $pathCert, $pathChain]);
 	}
-	
+
 }
