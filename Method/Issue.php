@@ -4,6 +4,7 @@ namespace GDO\ACME\Method;
 use GDO\ACME\Module_ACME;
 use GDO\Admin\MethodAdmin;
 use GDO\Core\GDO_ErrorFatal;
+use GDO\Core\GDT;
 use GDO\Core\Website;
 use GDO\Form\GDT_AntiCSRF;
 use GDO\Form\GDT_Form;
@@ -35,7 +36,7 @@ final class Issue extends MethodForm
 		$form->actions()->addField(GDT_Submit::make());
 	}
 
-	public function formValidated(GDT_Form $form)
+	public function formValidated(GDT_Form $form): GDT
 	{
 		return $this->issueCert(Module_ACME::instance(), GDO_DOMAIN);
 	}

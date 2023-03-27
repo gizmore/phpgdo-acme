@@ -3,6 +3,8 @@ namespace GDO\ACME\Method;
 
 use GDO\ACME\Module_ACME;
 use GDO\Admin\MethodAdmin;
+use GDO\Core\GDT;
+use GDO\Core\GDT_Response;
 use GDO\Core\Method;
 
 /**
@@ -22,6 +24,9 @@ final class Admin extends Method
 		Module_ACME::instance()->renderACMEBar();
 	}
 
-	public function execute() {}
+	public function execute(): GDT
+	{
+		return GDT_Response::make();
+	}
 
 }

@@ -12,12 +12,12 @@ use GDO\Cronjob\MethodCronjob;
 final class Cronjob extends MethodCronjob
 {
 
-	public function runAt()
+	public function runAt(): string
 	{
 		return $this->runDailyAt(5);
 	}
 
-	public function run()
+	public function run(): void
 	{
 		$result = Renew::make()->executeWithInputs([
 			'submit' => 1], false);
