@@ -28,7 +28,7 @@ final class Account extends MethodForm
 		Module_ACME::instance()->renderACMEBar();
 	}
 
-	public function createForm(GDT_Form $form): void
+	protected function createForm(GDT_Form $form): void
 	{
 		$form->addFields(
 			GDT_AntiCSRF::make());

@@ -3,7 +3,7 @@ namespace GDO\ACME\Method;
 
 use GDO\ACME\Module_ACME;
 use GDO\Admin\MethodAdmin;
-use GDO\Core\GDO_ErrorFatal;
+use GDO\Core\GDO_ExceptionFatal;
 use GDO\Core\GDT;
 use GDO\Core\Website;
 use GDO\Form\GDT_AntiCSRF;
@@ -29,7 +29,7 @@ final class Issue extends MethodForm
 		Module_ACME::instance()->renderACMEBar();
 	}
 
-	public function createForm(GDT_Form $form): void
+	protected function createForm(GDT_Form $form): void
 	{
 		$form->addFields(
 			GDT_AntiCSRF::make());
@@ -130,7 +130,7 @@ final class Issue extends MethodForm
 	{
 // 		$domain = $credential['identifier'];
 // 		$contents = $credential['dnsContent'];
-		throw new GDO_ErrorFatal('err_acme_dns');
+		throw new GDO_ExceptionFatal('err_acme_dns');
 	}
 
 	private function saveCertificate(array $info)
