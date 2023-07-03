@@ -23,7 +23,9 @@ final class Issue extends MethodForm
 
 	use MethodAdmin;
 
-	public function onRenderTabs(): void
+    public function isCLI(): bool { return true; }
+
+    public function onRenderTabs(): void
 	{
 		$this->renderAdminBar();
 		Module_ACME::instance()->renderACMEBar();
